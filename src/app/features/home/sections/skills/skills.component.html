@@ -1,0 +1,58 @@
+<section id="skills" class="portfolio-section skills-section">
+  <div class="glow-blob blob-2"></div>
+  <div class="container">
+
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">02 / WHAT I KNOW</span>
+      <h2 class="section-heading">Skills &amp; <span class="gradient-text">Expertise</span></h2>
+      <p class="section-subtitle mx-auto">
+        A curated stack built over 2+ years of shipping real products.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      @for (cat of categories; track cat.key) {
+        <div class="col-lg-6" data-aos="fade-up">
+          <div class="skill-category glass-card p-4 h-100">
+            <div class="cat-header mb-4">
+              <span class="cat-icon">{{ cat.icon }}</span>
+              <h4 class="cat-title">{{ cat.label }}</h4>
+            </div>
+            <div class="skills-list">
+              @for (skill of cat.skills; track skill.name) {
+                <div class="skill-item">
+                  <div class="skill-meta">
+                    <span class="skill-name">{{ skill.name }}</span>
+                    <span class="skill-level">{{ skill.level }}%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div
+                      #barFill
+                      class="skill-bar-fill"
+                      [attr.data-level]="skill.level"
+                      [style.--skill-color]="skill.color">
+                    </div>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Tech Chips -->
+    <div class="tech-cloud mt-5" data-aos="fade-up">
+      <span class="section-label text-center d-block mb-4">TOOLS &amp; TECHNOLOGIES</span>
+      <div class="chips-wrap">
+        @for (chip of techChips; track chip.name) {
+          <div class="tech-chip" [style.--chip-color]="chip.color">
+            <span>{{ chip.emoji }}</span>
+            <span>{{ chip.name }}</span>
+          </div>
+        }
+      </div>
+    </div>
+
+  </div>
+</section>

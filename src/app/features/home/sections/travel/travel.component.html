@@ -1,0 +1,46 @@
+<section id="travel" class="portfolio-section travel-section">
+  <div class="glow-blob blob-1"></div>
+  <div class="container">
+
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">09 / LIFE ON THE ROAD</span>
+      <h2 class="section-heading">Rides &amp; <span class="gradient-text">Adventures</span></h2>
+      <p class="section-subtitle mx-auto">
+        Two wheels, open roads, and a phone with Spotify. That's all you need.
+      </p>
+    </div>
+
+    <!-- Bike Stats -->
+    <div class="bike-stats-row mb-5" data-aos="fade-up">
+      @for (s of bikeStats; track s.label) {
+        <div class="bike-stat glass-card p-4 text-center">
+          <div class="bike-stat-val gradient-text">{{ s.value }}</div>
+          <div class="bike-stat-key">{{ s.label }}</div>
+        </div>
+      }
+    </div>
+
+    <!-- Destinations Grid -->
+    <div class="dest-grid">
+      @for (d of destinations; track d.name; let i = $index) {
+        <div class="dest-card hover-card p-4" data-aos="fade-up" [attr.data-aos-delay]="i * 70">
+          <div class="dest-emoji-wrap" [style.background]="d.color + '18'" [style.border-color]="d.color + '35'">
+            <span class="dest-emoji">{{ d.emoji }}</span>
+          </div>
+          <div>
+            <div class="dest-name">{{ d.name }}</div>
+            <div class="dest-type" [style.color]="d.color">{{ d.type }}</div>
+            <div class="dest-desc">{{ d.desc }}</div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Road Quote -->
+    <div class="road-quote glass-card p-5 mt-5 text-center" data-aos="fade-up">
+      <div class="road-emoji">🏍️</div>
+      <p class="road-text">"Not all those who wander are lost — some are just looking for the next great ride."</p>
+    </div>
+
+  </div>
+</section>

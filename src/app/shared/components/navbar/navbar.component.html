@@ -1,0 +1,51 @@
+<nav class="navbar-root" [class.scrolled]="scrolled()">
+  <div class="container-fluid px-4 px-lg-5">
+    <div class="nav-inner">
+
+      <!-- Logo -->
+      <a class="nav-logo" (click)="scrollTo('hero')">
+        <span class="logo-bracket">&lt;</span>
+        <span class="logo-text">PN</span>
+        <span class="logo-bracket">/&gt;</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <ul class="nav-links">
+        @for (link of links; track link.href) {
+          <li>
+            <button
+              class="nav-link-btn"
+              [class.active]="activeSection() === link.href"
+              (click)="scrollTo(link.href)">
+              {{ link.label }}
+            </button>
+          </li>
+        }
+      </ul>
+
+      <!-- Right Actions -->
+      <div class="nav-actions">
+        <button class="theme-toggle" (click)="themeService.toggle()" [title]="themeService.isDark() ? 'Light mode' : 'Dark mode'">
+          @if (themeService.isDark()) { ☀️ } @else { 🌙 }
+        </button>
+        <button class="btn-primary-glow resume-btn" (click)="downloadResume()">
+          <span>Resume</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        </button>
+        <button class="hamburger" [class.open]="menuOpen()" (click)="menuOpen.set(!menuOpen())" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" [class.open]="menuOpen()">
+    @for (link of links; track link.href) {
+      <button class="mobile-link" [class.active]="activeSection() === link.href" (click)="scrollTo(link.href)">
+        {{ link.label }}
+      </button>
+    }
+    <button class="btn-primary-glow w-100 mt-3" (click)="downloadResume()">Download Resume</button>
+  </div>
+</nav>

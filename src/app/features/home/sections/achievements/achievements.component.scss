@@ -1,0 +1,32 @@
+.achievements-section { background: var(--bg-secondary); }
+
+.counters-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  @media (max-width: 768px) { grid-template-columns: repeat(2, 1fr); }
+}
+
+.counter-card { transition: all 0.3s ease; &:hover { border-color: var(--border-accent); transform: translateY(-4px); } }
+.counter-val  { font-size: 2.6rem; font-weight: 900; font-family: 'Space Grotesk', sans-serif; margin-bottom: 6px; }
+.counter-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.5px; }
+
+.ach-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.ach-card { display: flex; align-items: flex-start; gap: 16px; }
+
+.ach-icon-wrap {
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  border: 1px solid;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.ach-title { font-weight: 700; font-size: 0.95rem; color: var(--text-primary); margin-bottom: 6px; }
+.ach-desc  { font-size: 0.845rem; color: var(--text-secondary); line-height: 1.6; }

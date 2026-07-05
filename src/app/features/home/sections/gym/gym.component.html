@@ -1,0 +1,72 @@
+<section id="gym" class="portfolio-section gym-section">
+  <div class="glow-blob blob-2"></div>
+  <div class="container">
+
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">08 / BEYOND THE SCREEN</span>
+      <h2 class="section-heading">The <span class="gradient-text">Gym Life</span></h2>
+      <p class="section-subtitle mx-auto">
+        Code and iron have the same lesson: show up, be consistent, and results follow.
+      </p>
+    </div>
+
+    <div class="row g-5 align-items-center mb-5">
+
+      <!-- Quote Slider -->
+      <div class="col-lg-6" data-aos="fade-right">
+        <div class="quote-card glass-card p-5">
+          <div class="quote-icon">❝</div>
+          <p class="quote-text">{{ quotes[activeQuote()].text }}</p>
+          <div class="quote-author">— {{ quotes[activeQuote()].author }}</div>
+          <div class="quote-nav">
+            <button class="q-btn" (click)="prevQuote()">←</button>
+            <div class="q-dots">
+              @for (q of quotes; track $index; let i = $index) {
+                <span class="q-dot" [class.active]="activeQuote() === i" (click)="activeQuote.set(i)"></span>
+              }
+            </div>
+            <button class="q-btn" (click)="nextQuote()">→</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats + Animated Dumbbell -->
+      <div class="col-lg-6" data-aos="fade-left">
+        <div class="gym-visual">
+          <div class="dumbbell-wrap">
+            <div class="dumbbell">
+              <div class="plate plate-l plate-l1"></div>
+              <div class="plate plate-l plate-l2"></div>
+              <div class="bar"></div>
+              <div class="plate plate-r plate-r1"></div>
+              <div class="plate plate-r plate-r2"></div>
+            </div>
+          </div>
+          <div class="gym-stats-grid">
+            @for (s of stats; track s.label) {
+              <div class="gym-stat glass-card p-3 text-center">
+                <div class="gym-stat-val gradient-text">{{ s.value }}</div>
+                <div class="gym-stat-key">{{ s.label }}</div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Philosophy Principles -->
+    <div class="row g-4" data-aos="fade-up">
+      @for (p of principles; track p.title; let i = $index) {
+        <div class="col-sm-6 col-lg-3">
+          <div class="principle-card hover-card p-4 h-100" [attr.data-aos-delay]="i * 80" data-aos="fade-up">
+            <div class="principle-icon">{{ p.icon }}</div>
+            <h5 class="principle-title">{{ p.title }}</h5>
+            <p class="principle-desc">{{ p.desc }}</p>
+          </div>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>

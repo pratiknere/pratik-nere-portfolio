@@ -1,0 +1,37 @@
+<section id="achievements" class="portfolio-section achievements-section">
+  <div class="glow-blob blob-1"></div>
+  <div class="container">
+
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">07 / MILESTONES</span>
+      <h2 class="section-heading">Achievements &amp; <span class="gradient-text">Milestones</span></h2>
+      <p class="section-subtitle mx-auto">Numbers don't lie. Neither does the grind.</p>
+    </div>
+
+    <!-- Animated Counters -->
+    <div class="counters-row mb-5" data-aos="fade-up">
+      @for (c of counters; track c.label; let i = $index) {
+        <div class="counter-card glass-card p-4 text-center">
+          <div #counterEl class="counter-val gradient-text">{{ displayValues[i] ?? 0 }}{{ c.suffix }}</div>
+          <div class="counter-label">{{ c.label }}</div>
+        </div>
+      }
+    </div>
+
+    <!-- Achievement Cards -->
+    <div class="ach-grid">
+      @for (a of achievements; track a.title; let i = $index) {
+        <div class="ach-card hover-card p-4" data-aos="fade-up" [attr.data-aos-delay]="i * 60">
+          <div class="ach-icon-wrap" [style.background]="a.color + '18'" [style.border-color]="a.color + '35'">
+            <span>{{ a.icon }}</span>
+          </div>
+          <div>
+            <div class="ach-title">{{ a.title }}</div>
+            <div class="ach-desc">{{ a.desc }}</div>
+          </div>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>

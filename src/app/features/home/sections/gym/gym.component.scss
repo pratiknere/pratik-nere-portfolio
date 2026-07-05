@@ -1,0 +1,111 @@
+.gym-section { background: var(--bg-primary); }
+
+// Quote Card
+.quote-card { position: relative; }
+
+.quote-icon {
+  font-size: 4rem;
+  color: var(--accent);
+  opacity: 0.3;
+  line-height: 1;
+  margin-bottom: 16px;
+  font-family: Georgia, serif;
+}
+
+.quote-text {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--text-primary);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.quote-author {
+  font-size: 0.875rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.quote-nav { display: flex; align-items: center; gap: 16px; }
+
+.q-btn {
+  width: 36px; height: 36px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s ease;
+  &:hover { border-color: var(--border-accent); color: var(--accent); }
+}
+
+.q-dots { display: flex; gap: 8px; }
+
+.q-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  &.active { background: var(--accent); transform: scale(1.3); }
+}
+
+// Dumbbell Animation
+.gym-visual { display: flex; flex-direction: column; align-items: center; gap: 40px; }
+
+.dumbbell-wrap {
+  padding: 20px;
+  animation: curl 3s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+@keyframes curl {
+  0%   { transform: rotate(-15deg) translateY(0); }
+  100% { transform: rotate(15deg) translateY(-12px); }
+}
+
+.dumbbell {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  filter: drop-shadow(0 8px 24px rgba(var(--accent-rgb), 0.4));
+}
+
+.bar {
+  width: 120px;
+  height: 14px;
+  background: linear-gradient(180deg, #888 0%, #555 50%, #888 100%);
+  border-radius: 7px;
+}
+
+.plate {
+  height: 52px;
+  border-radius: 6px;
+  background: linear-gradient(180deg, var(--accent) 0%, #4a42d4 100%);
+
+  &.plate-l { border-radius: 8px 4px 4px 8px; }
+  &.plate-r { border-radius: 4px 8px 8px 4px; }
+  &.plate-l1, &.plate-r1 { width: 18px; height: 52px; }
+  &.plate-l2, &.plate-r2 { width: 14px; height: 42px; opacity: 0.7; }
+}
+
+.gym-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.gym-stat { transition: all 0.3s ease; &:hover { border-color: var(--border-accent); transform: translateY(-3px); } }
+.gym-stat-val { font-size: 1.4rem; font-weight: 800; font-family: 'Space Grotesk', sans-serif; margin-bottom: 4px; }
+.gym-stat-key { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+
+// Principles
+.principle-card { text-align: center; }
+.principle-icon  { font-size: 2rem; margin-bottom: 12px; }
+.principle-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+.principle-desc  { font-size: 0.825rem; color: var(--text-secondary); line-height: 1.65; }

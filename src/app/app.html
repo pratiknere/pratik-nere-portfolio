@@ -1,0 +1,11 @@
+<app-loading *ngIf="isLoading()" />
+
+<ng-container *ngIf="!isLoading()">
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+  <app-cursor />
+  <app-navbar />
+  <main class="page-enter">
+    <router-outlet />
+  </main>
+</ng-container>

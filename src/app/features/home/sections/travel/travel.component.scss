@@ -1,0 +1,41 @@
+.travel-section { background: var(--bg-secondary); }
+
+.bike-stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  @media (max-width: 768px) { grid-template-columns: repeat(2, 1fr); }
+}
+
+.bike-stat { transition: all 0.3s ease; &:hover { border-color: var(--border-accent); transform: translateY(-3px); } }
+.bike-stat-val { font-size: 1.6rem; font-weight: 800; font-family: 'Space Grotesk', sans-serif; margin-bottom: 4px; }
+.bike-stat-key { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+
+.dest-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.dest-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.dest-emoji-wrap {
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  border: 1px solid;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.dest-emoji  { font-size: 1.5rem; }
+.dest-name   { font-weight: 700; font-size: 0.95rem; color: var(--text-primary); margin-bottom: 2px; }
+.dest-type   { font-size: 0.78rem; font-weight: 600; margin-bottom: 6px; letter-spacing: 0.5px; }
+.dest-desc   { font-size: 0.825rem; color: var(--text-secondary); line-height: 1.6; }
+
+.road-quote  { max-width: 640px; margin-left: auto; margin-right: auto; }
+.road-emoji  { font-size: 2.5rem; margin-bottom: 16px; }
+.road-text   { font-size: 1.05rem; font-style: italic; color: var(--text-secondary); line-height: 1.8; }

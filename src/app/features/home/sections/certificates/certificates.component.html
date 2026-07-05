@@ -1,0 +1,42 @@
+<section id="certificates" class="portfolio-section certs-section">
+  <div class="glow-blob blob-2"></div>
+  <div class="container">
+
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">06 / CREDENTIALS</span>
+      <h2 class="section-heading">Certificates &amp; <span class="gradient-text">Learning</span></h2>
+      <p class="section-subtitle mx-auto">Continuous learning is the foundation of growth.</p>
+    </div>
+
+    <div class="certs-grid">
+      @for (c of certs; track c.title; let i = $index) {
+        <div class="cert-card hover-card p-4" data-aos="fade-up" [attr.data-aos-delay]="i * 60" (click)="selected.set(c)">
+          <div class="cert-icon" [style.background]="c.color + '18'" [style.border-color]="c.color + '40'">
+            <span>{{ c.icon }}</span>
+          </div>
+          <div class="cert-info">
+            <div class="cert-title">{{ c.title }}</div>
+            <div class="cert-meta">{{ c.issuer }} · {{ c.year }}</div>
+          </div>
+          <div class="cert-arrow">→</div>
+        </div>
+      }
+    </div>
+
+  </div>
+
+  <!-- Modal -->
+  @if (selected()) {
+    <div class="modal-backdrop" (click)="selected.set(null)">
+      <div class="cert-modal glass-card p-5" (click)="$event.stopPropagation()">
+        <button class="modal-close" (click)="selected.set(null)">✕</button>
+        <div class="cert-modal-icon" [style.background]="selected()!.color + '18'">
+          <span style="font-size:3rem">{{ selected()!.icon }}</span>
+        </div>
+        <h3 class="mt-4 mb-1">{{ selected()!.title }}</h3>
+        <p style="color:var(--accent);font-weight:600;margin-bottom:16px">{{ selected()!.issuer }} · {{ selected()!.year }}</p>
+        <p style="color:var(--text-secondary);line-height:1.8">{{ selected()!.desc }}</p>
+      </div>
+    </div>
+  }
+</section>

@@ -1,0 +1,109 @@
+<section id="about" class="portfolio-section about-section">
+  <div class="glow-blob blob-1"></div>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">01 / WHO I AM</span>
+      <h2 class="section-heading">About <span class="gradient-text">Me</span></h2>
+      <p class="section-subtitle mx-auto">
+        A passionate engineer who believes great software is equal parts engineering and artistry.
+      </p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="row g-5 align-items-center mb-5">
+
+      <!-- Photo card -->
+      <div class="col-lg-4" data-aos="fade-right">
+        <div class="about-photo-card glass-card p-4 text-center">
+          <div class="about-avatar">
+            <img src="assets/images/pratik.jpg" alt="Pratik Nere"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="avatar-fallback">PN</div>
+          </div>
+          <h3 class="mt-4 mb-1">Pratik Nere</h3>
+          <p class="mb-1" style="color:var(--accent);font-weight:600;font-size:0.9rem">Software Engineer</p>
+          <p class="text-muted mb-3" style="font-size:0.82rem">Full Stack Java Developer · Pune, India</p>
+
+          <div class="availability-badge">
+            <span class="ping"></span>
+            Open to Opportunities
+          </div>
+
+          <div class="about-quick-stats mt-4">
+            <div class="qs-item">
+              <span class="qs-val gradient-text">2.8+</span>
+              <span class="qs-key">Yrs Exp</span>
+            </div>
+            <div class="qs-divider"></div>
+            <div class="qs-item">
+              <span class="qs-val gradient-text">10+</span>
+              <span class="qs-key">Projects</span>
+            </div>
+            <div class="qs-divider"></div>
+            <div class="qs-item">
+              <span class="qs-val gradient-text">20+</span>
+              <span class="qs-key">Tech Stack</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bio -->
+      <div class="col-lg-8" data-aos="fade-left">
+        <span class="section-label">MY STORY</span>
+        <h3 class="about-title">Building Enterprise Software, One Feature at a Time</h3>
+
+        <p class="about-text">
+          Hi! I'm <strong>Pratik Nere</strong> — a Software Engineer from Pune with
+          <strong>2.8+ years of experience</strong> building enterprise hospitality applications at
+          <strong>Cybage Software</strong>. I specialize in the Hotel Channel Management domain,
+          working on OTA integrations, reservation systems, and scalable microservices.
+        </p>
+        <p class="about-text">
+          My stack spans the full pipeline: <strong>Angular 20</strong> on the frontend with
+          Standalone Components, Signals, and Reactive Forms; <strong>Spring Boot 3.x</strong> on the
+          backend with microservices, Spring Security, and JPA; event-driven architecture with
+          <strong>Apache Kafka</strong>; and multi-database expertise across Oracle, PostgreSQL,
+          Couchbase, and Elasticsearch.
+        </p>
+        <p class="about-text">
+          I actively use <strong>GitHub Copilot and AI tooling</strong> to ship faster without
+          compromising on quality. Outside work, I'm a gym enthusiast, bike rider, and side-project
+          builder — currently working on <strong>StayConnect</strong> and <strong>FitedIn</strong>.
+        </p>
+
+        <!-- Education -->
+        <div class="education-row mt-4">
+          @for (edu of education; track edu.degree) {
+            <div class="edu-card hover-card p-3">
+              <div class="edu-icon">{{ edu.icon }}</div>
+              <div>
+                <div class="edu-degree">{{ edu.degree }}</div>
+                <div class="edu-inst">{{ edu.institution }}</div>
+                <div class="edu-meta">{{ edu.university }}</div>
+                <div class="edu-meta">{{ edu.year }}</div>
+                <div class="edu-grade">{{ edu.grade }}</div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- Fun Facts -->
+    <div class="row g-4" data-aos="fade-up">
+      @for (fact of facts; track fact.label) {
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="fact-card hover-card p-4 text-center h-100">
+            <div class="fact-icon">{{ fact.icon }}</div>
+            <div class="fact-label">{{ fact.label }}</div>
+            <div class="fact-desc">{{ fact.desc }}</div>
+          </div>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>

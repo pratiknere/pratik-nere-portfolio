@@ -1,0 +1,91 @@
+.journey-section { background: var(--bg-secondary); }
+
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  transform: translateX(-50%);
+  opacity: 0.3;
+  @media (max-width: 768px) { left: 20px; }
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 1fr 48px 1fr;
+  align-items: start;
+  gap: 0;
+  position: relative;
+
+  .timeline-connector { display: flex; justify-content: center; padding-top: 20px; z-index: 1; }
+  .timeline-card { grid-column: 1; }
+
+  &.right {
+    .timeline-card { grid-column: 3; }
+    .timeline-connector { grid-column: 2; grid-row: 1; }
+  }
+
+  &:not(.right) .timeline-connector { grid-column: 2; }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 48px 1fr;
+    &.right .timeline-card, .timeline-card { grid-column: 2; }
+    .timeline-connector, &.right .timeline-connector { grid-column: 1; grid-row: 1; }
+  }
+}
+
+.timeline-dot {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 2px solid var(--border-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.3);
+
+  &.type-career    { border-color: #6c63ff; box-shadow: 0 0 20px rgba(108,99,255,0.4); }
+  &.type-education { border-color: #22c55e; box-shadow: 0 0 20px rgba(34,197,94,0.4); }
+  &.type-milestone { border-color: #f59e0b; box-shadow: 0 0 20px rgba(245,158,11,0.4); }
+  &.type-project   { border-color: #ff6584; box-shadow: 0 0 20px rgba(255,101,132,0.4); }
+  &.type-future    { border-color: #a855f7; box-shadow: 0 0 20px rgba(168,85,247,0.4); }
+}
+
+.tl-year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.tl-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+.tl-subtitle { font-size: 0.85rem; color: var(--accent); font-weight: 500; margin-bottom: 10px; }
+.tl-desc { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px; }
+
+.tl-type-badge {
+  padding: 3px 12px;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+
+  &.type-career    { background: rgba(108,99,255,0.12); color: #6c63ff; }
+  &.type-education { background: rgba(34,197,94,0.12);  color: #22c55e; }
+  &.type-milestone { background: rgba(245,158,11,0.12); color: #f59e0b; }
+  &.type-project   { background: rgba(255,101,132,0.12);color: #ff6584; }
+  &.type-future    { background: rgba(168,85,247,0.12); color: #a855f7; }
+}

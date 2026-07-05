@@ -1,0 +1,30 @@
+<section id="journey" class="portfolio-section journey-section">
+  <div class="glow-blob blob-1"></div>
+  <div class="container">
+
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">05 / MY STORY</span>
+      <h2 class="section-heading">My <span class="gradient-text">Journey</span></h2>
+      <p class="section-subtitle mx-auto">From curious student to professional developer — every step that shaped me.</p>
+    </div>
+
+    <div class="timeline">
+      @for (item of items; track item.year; let i = $index) {
+        <div class="timeline-item" [class.right]="i % 2 !== 0" data-aos="fade-up" [attr.data-aos-delay]="i * 80">
+          <div class="timeline-connector">
+            <div class="timeline-dot" [class]="'type-' + item.type">{{ item.icon }}</div>
+          </div>
+          <div class="timeline-card hover-card p-4">
+            <div class="tl-year">{{ item.year }}</div>
+            <h4 class="tl-title">{{ item.title }}</h4>
+            <div class="tl-subtitle">{{ item.subtitle }}</div>
+            <p class="tl-desc">{{ item.description }}</p>
+            <span class="tl-type-badge type-{{ item.type }}">{{ item.type }}</span>
+          </div>
+        </div>
+      }
+      <div class="timeline-line"></div>
+    </div>
+
+  </div>
+</section>

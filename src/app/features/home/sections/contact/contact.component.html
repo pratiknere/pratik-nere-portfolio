@@ -1,0 +1,158 @@
+<section id="contact" class="portfolio-section contact-section">
+  <div class="glow-blob blob-2"></div>
+  <div class="glow-blob blob-1"></div>
+  <div class="container">
+
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">10 / LET'S CONNECT</span>
+      <h2 class="section-heading">Get In <span class="gradient-text">Touch</span></h2>
+      <p class="section-subtitle mx-auto">
+        Open to full-time roles, freelance projects, and interesting conversations. Let's build something great.
+      </p>
+    </div>
+
+    <div class="row g-5">
+
+      <!-- Left: Channels -->
+      <div class="col-lg-5" data-aos="fade-right">
+        <div class="contact-info">
+
+          <div class="availability-hero glass-card p-4 mb-4">
+            <div class="avail-dot"></div>
+            <div>
+              <div class="avail-title">Available for Opportunities</div>
+              <div class="avail-sub">Full-time · Freelance · Collaboration</div>
+            </div>
+          </div>
+
+          <div class="channels">
+            @for (c of channels; track c.label) {
+              <a [href]="c.href" target="_blank" class="channel-card hover-card p-4">
+                <div class="ch-icon" [style.background]="c.color + '18'" [style.border-color]="c.color + '35'">
+                  {{ c.icon }}
+                </div>
+                <div class="ch-info">
+                  <div class="ch-label">{{ c.label }}</div>
+                  <div class="ch-value">{{ c.value }}</div>
+                </div>
+                <span class="ch-arrow">→</span>
+              </a>
+            }
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="col-lg-7" data-aos="fade-left">
+        <div class="contact-form glass-card p-5">
+
+          <!-- Success State -->
+          @if (status() === 'sent') {
+            <div class="feedback-state success-state">
+              <div class="feedback-icon">✅</div>
+              <h4>Message Sent!</h4>
+              <p>Thanks for reaching out, I'll get back to you within 24 hours.</p>
+              <button class="btn-outline-glow mt-3" (click)="resetError()">Send Another</button>
+            </div>
+          }
+
+          <!-- Error State -->
+          @else if (status() === 'error') {
+            <div class="feedback-state error-state">
+              <div class="feedback-icon">❌</div>
+              <h4>Oops! Something went wrong.</h4>
+              <p>{{ errorMsg() }}</p>
+              <button class="btn-outline-glow mt-3" (click)="resetError()">Try Again</button>
+            </div>
+          }
+
+          <!-- Form -->
+          @else {
+            <h4 class="form-heading mb-4">Send a Message</h4>
+
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <div class="form-group" [class.has-error]="errors['name']">
+                  <label>Your Name *</label>
+                  <input
+                    type="text"
+                    [(ngModel)]="form.name"
+                    placeholder="Pratik Nere"
+                    class="form-input"
+                    [disabled]="status() === 'sending'" />
+                  @if (errors['name']) {
+                    <span class="err-msg">{{ errors['name'] }}</span>
+                  }
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="form-group" [class.has-error]="errors['email']">
+                  <label>Email Address *</label>
+                  <input
+                    type="email"
+                    [(ngModel)]="form.email"
+                    placeholder="hello@example.com"
+                    class="form-input"
+                    [disabled]="status() === 'sending'" />
+                  @if (errors['email']) {
+                    <span class="err-msg">{{ errors['email'] }}</span>
+                  }
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-group">
+                  <label>Subject</label>
+                  <input
+                    type="text"
+                    [(ngModel)]="form.subject"
+                    placeholder="Job opportunity / Project collaboration"
+                    class="form-input"
+                    [disabled]="status() === 'sending'" />
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-group" [class.has-error]="errors['message']">
+                  <label>Message *</label>
+                  <textarea
+                    [(ngModel)]="form.message"
+                    rows="5"
+                    placeholder="Tell me about your project or opportunity..."
+                    class="form-input form-textarea"
+                    [disabled]="status() === 'sending'">
+                  </textarea>
+                  @if (errors['message']) {
+                    <span class="err-msg">{{ errors['message'] }}</span>
+                  }
+                </div>
+              </div>
+
+              <div class="col-12">
+                <button
+                  class="btn-primary-glow w-100 send-btn"
+                  (click)="send()"
+                  [disabled]="status() === 'sending'">
+                  @if (status() === 'sending') {
+                    <span class="spinner"></span>
+                    Sending...
+                  } @else {
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                      <line x1="22" y1="2" x2="11" y2="13"/>
+                      <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                    </svg>
+                    Send Message
+                  }
+                </button>
+              </div>
+            </div>
+          }
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
